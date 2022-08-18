@@ -1,5 +1,7 @@
 # Calomodoro
 
+Hey Casey.... Let's get this bread
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
