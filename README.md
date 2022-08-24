@@ -4,8 +4,6 @@ Hey Casey.... Let's get this bread
 Casey!!!!!
 casey... i know you are out there
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
