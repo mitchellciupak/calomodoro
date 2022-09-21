@@ -8,12 +8,12 @@ FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${NODE_VERSION}
 # LABELS
 LABEL org.opencontainers.image.authors="mitchellciupak"
 
-# NODE DEPENDANCIES
-## changes to package will force changes to subsequent layers
-# COPY ./package.json /tmp/package.json
-# RUN cd /tmp && npm install
-# RUN mkdir -p /opt/app && cp -a /tmp/node_modules /app
-
-# APPLICATION
-# WORKDIR /app
-# COPY . /app
+# GIT DEPENDANCIES
+## GH CLI INSTALL
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && sudo apt update \
+    && sudo apt install gh -y
+# git config
+# git config
