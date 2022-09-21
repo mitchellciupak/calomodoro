@@ -30,5 +30,9 @@
 	// Use 'postStartCommand' to run commands after the container is started
 	// "postStartCommand": "pre-commit install",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
+	"remoteUser": "node",
+	//requires auth with gh cli. More info: https://cli.github.com. More info: https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount.
+	"mounts": [
+		"source=${localEnv:HOME}/.config/gh/,target=/home/node/.config/gh/,type=bind"
+	]
 }
