@@ -1,15 +1,11 @@
 # Calomodoro
 
-Hey Casey.... Let's get this bread
-Casey!!!!!
-casey... i know you are out there
-
-
-picking up this up again next week
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
 
 ### `npm start`
 
