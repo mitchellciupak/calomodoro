@@ -1,16 +1,19 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.234.0/containers/typescript-node/.devcontainer/base.Dockerfile
+# ARGS
+ARG NODE_VERSION="18-bullseye"
 
-# [Choice] Node.js version (use -bullseye variants on local arm64/Apple Silicon): 18, 16, 14, 18-bullseye, 16-bullseye, 14-bullseye, 18-buster, 16-buster, 14-buster
-ARG VARIANT="18-bullseye"
-FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
+# BASE IMAGE
+## https://github.com/microsoft/vscode-dev-containers/tree/v0.234.0/containers/typescript-node/.devcontainer/base.Dockerfile
+FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${NODE_VERSION}
 
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+# LABELS
+LABEL org.opencontainers.image.authors="mitchellciupak"
 
-# [Optional] Uncomment if you want to install an additional version of node using nvm
-# ARG EXTRA_NODE_VERSION=10
-# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
+# NODE DEPENDANCIES
+## changes to package will force changes to subsequent layers
+# COPY ./package.json /tmp/package.json
+# RUN cd /tmp && npm install
+# RUN mkdir -p /opt/app && cp -a /tmp/node_modules /app
 
-# [Optional] Uncomment if you want to install more global node packages
-# RUN su node -c "npm install -g <your-package-list -here>"
+# APPLICATION
+# WORKDIR /app
+# COPY . /app
