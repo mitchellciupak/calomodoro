@@ -76,3 +76,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 * (Docker)[https://docs.docker.com/reference/]
 * (GitHub CLI)[https://cli.github.com]
 * (GitHub Actions)[https://docs.github.com/en/actions]
+* (Husky GitHooks)[https://typicode.github.io/husky/#/]
