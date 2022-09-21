@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Box, Button, Card, NumberInput } from "@mantine/core";
 
 export default function TimerComponent(props) {
-  const [value, setValue] = useState(25);
+  const [value, setValue] = useState(30);
   const [startTimer, setStartTimer] = useState(false);
   useEffect(() => {
     if (value > 0 && startTimer) {
