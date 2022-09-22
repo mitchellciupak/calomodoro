@@ -7,13 +7,14 @@ const minutes = 30;
 
 export default function EventComponent(props) {
     const [summary, setSummary] = useState("write your event summary here.");
+    const [description, setDescription] = useState("write your event description here.");
 
     const startButtonHandler = () => {
 
         const event = {
             'summary': summary,
             'location': '402 At My Desk Blvd, Moon, Dark Side',
-            'description': 'I plan to ride my bike',
+            'description': description,
             'start': {
                 'dateTime': new Date().toISOString(),
                 'timeZone': Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -38,7 +39,7 @@ export default function EventComponent(props) {
             // },
         };
 
-        alert('A Event was submitted to Google Calendar: ' + summary);
+        alert('A Event was submitted to Google Calendar: ' + event.summary);
     }
 
     return (
@@ -48,10 +49,16 @@ export default function EventComponent(props) {
                     <TextInput
                         value={summary}
                         onChange={event => setSummary(event.target.value)}
-                        placeholder="write your event summary here."
                         label="Event Summary"
                         radius="sm"
                     />
+                    <TextInput
+                        value={description}
+                        onChange={event => setDescription(event.target.value)}
+                        label="Event Description"
+                        radius="sm"
+                    />
+                    <div></div>
                     <Button onClick={startButtonHandler}>Start</Button>
                 </Card>
             </Box>
