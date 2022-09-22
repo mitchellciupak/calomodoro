@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import { Box, Button, Card, NumberInput } from "@mantine/core";
 
 export default function TimerComponent(props) {
