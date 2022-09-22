@@ -1,15 +1,17 @@
 import React from "react";
 
+const minutes = 30;
+
 const event = {
     'summary': 'Riding a Bike',
     'location': '402 At My Desk Blvd, Moon, Dark Side',
     'description': 'I plan to ride my bike',
     'start': {
-        'dateTime': '2015-05-28T09:00:00-07:00',
+        'dateTime': new Date().toISOString(),
         'timeZone': Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
     'end': {
-        'dateTime': '2015-05-28T17:00:00-07:00',
+        'dateTime': (new Date(new Date().getTime() + (minutes * 60 * 1000))).toISOString(),
         'timeZone': Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
     'recurrence': [
