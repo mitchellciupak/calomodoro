@@ -28,7 +28,7 @@ export default function TimerComponent(props) {
             onChange={(val) => setValue(val)}
             min={0}
           />
-          <Button onClick={timerButtonHandler}>Click</Button>
+          <Button onClick={timerButtonHandler}>Save</Button>
         </Card>
       </Box>
     </>

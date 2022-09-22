@@ -1,4 +1,5 @@
-import React from "react";
+import { useState } from "react";
+import { Box, Card, TextInput, Button } from '@mantine/core';
 
 const minutes = 30;
 
@@ -30,33 +31,28 @@ const event = {
     // },
 };
 
-export default class EventComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = event;
+export default function EventComponent(props) {
+    const [eventSummary, setEventSummaryValue] = useState(event.summary);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    const submitButtonHandler = () => {
+        alert('A Event was submitted to Google Calendar: ' + eventSummary);
     }
 
-    handleChange(event) {
-        this.setState({ value: event.target.value });
-    }
-
-    handleSubmit(event) {
-        alert('A Event was submitted to Google Calendar: ' + this.state.value);
-        event.preventDefault();
-    }
-
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Task Summary:
-                    <input type="text" value={this.state.summary} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-        );
-    }
+    return (
+        <>
+            <Box sx={{ width: 1000 }} mx="auto">
+                <Card>
+                    <TextInput
+                        value={eventSummary}
+                        onChange={(eventSummary) => setEventSummaryValue(eventSummary)}
+                        placeholder="write your event summary here."
+                        label="Event Summary"
+                        radius="sm"
+                        withAsterisk
+                    />
+                    <Button onClick={submitButtonHandler}>Submit</Button>
+                </Card>
+            </Box>
+        </>
+    );
 }
