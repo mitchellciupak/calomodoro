@@ -14,14 +14,12 @@
 	"settings": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 4,
-		{
-			"editor.codeActionsOnSave": {
-				"source.fixAll.eslint": true
-			},
-			"eslint.validate": [
-				"javascript"
-			]
-		}
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		},
+		"eslint.validate": [
+			"javascript"
+		]
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
