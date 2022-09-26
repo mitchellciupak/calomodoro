@@ -67,10 +67,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ## Docs
-* (React 18.2)[https://reactjs.org/docs/getting-started.html]
-* (Mantine Component Library)[https://mantine.dev/pages/getting-started/]
-* (Node)[https://nodejs.org/en/docs/]
-* (Docker)[https://docs.docker.com/reference/]
-* (GitHub CLI)[https://cli.github.com]
-* (GitHub Actions)[https://docs.github.com/en/actions]
-* (Husky GitHooks)[https://typicode.github.io/husky/#/]
+* [React 18.2](https://reactjs.org/docs/getting-started.html)
+* [Mantine Component Library](https://mantine.dev/pages/getting-started/)
+* [Node](https://nodejs.org/en/docs/)
+* [Docker](https://docs.docker.com/reference/)
+* [GitHub CLI](https://cli.github.com)
+* [GitHub Actions](https://docs.github.com/en/actions)
+* [Husky GitHooks](https://typicode.github.io/husky/#/)
