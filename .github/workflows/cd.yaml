@@ -11,9 +11,6 @@ strategy:
     node-version: [18.x]
 
 jobs:
-  # Merge Check:
-    # //check if CI passes
-    # //check if uptodate with master and no merge confdlict
   Tag:
     name: Tag
     runs-on: ubuntu-latest
