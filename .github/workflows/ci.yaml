@@ -23,7 +23,7 @@ jobs:
           VALIDATE_JAVASCRIPT_STANDARD: false
           JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  Tests:
+  Test:
     name:  Test Code Base
     runs-on: ubuntu-latest
     steps:
@@ -35,4 +35,6 @@ jobs:
           node-version: 18.*
           cache: 'npm'
       - name: Run Tests Against Source Code
-        run: yarn run test
+        run: |
+          yarn ci
+          yarn run test
