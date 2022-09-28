@@ -2,9 +2,6 @@ name: CI
 
 on:
   push:
-  pull_request:
-    branches: [ main ]
-
 
 jobs:
   Lint:
@@ -27,7 +24,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Calomodoro Source Code
+      - name: Checkout Source Code
         uses: actions/checkout@v3
       - name: Checkout Node.js Image
         uses: actions/setup-node@v3

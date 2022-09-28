@@ -1,0 +1,45 @@
+name: CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+strategy:
+  matrix:
+    node-version: [18.x]
+
+jobs:
+  # Merge Check:
+    # //check if CI passes
+    # //check if uptodate with master and no merge confdlict
+  Tag:
+    name: Tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+      - name: Checkout Node.js Image
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Version and Tag
+        run: |
+          yarn version --minor
+  Deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+      - name: Checkout Node.js Image
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Deploy
+        run: |
+          yarn install --frozen-lockfile
+          yarn run deploy
