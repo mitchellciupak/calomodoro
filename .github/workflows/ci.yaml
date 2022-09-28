@@ -20,13 +20,7 @@ jobs:
           DEFAULT_BRANCH: main
           LINTER_RULES_PATH: /
           VALIDATE_ALL_CODEBASE: false
-          VALIDATE_CSS: false
-          VALIDATE_JSON: false
-          VALIDATE_BASH: false
-          VALIDATE_BASH_EXEC: false
-          VALIDATE_TYPESCRIPT_ES: false
           VALIDATE_TYPESCRIPT_STANDARD: false
-          VALIDATE_DOCKERFILE_HADOLINT: false
           VALIDATE_JAVASCRIPT_STANDARD: false
           JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
