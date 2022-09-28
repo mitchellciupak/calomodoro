@@ -8,7 +8,7 @@ on:
 
 jobs:
   Lint:
-    name: Lint Code Base
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Code
@@ -24,7 +24,7 @@ jobs:
           JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   Test:
-    name:  Test Code Base
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Calomodoro Source Code
