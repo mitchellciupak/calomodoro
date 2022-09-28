@@ -6,9 +6,8 @@ on:
   pull_request:
     branches: [ main ]
 
-strategy:
-  matrix:
-    node-version: [18.x]
+env:
+  node-version: [18.x]
 
 jobs:
   Tag:
@@ -20,7 +19,7 @@ jobs:
       - name: Checkout Node.js Image
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.node_version }}
           cache: 'npm'
       - name: Version and Tag
         run: |
@@ -34,7 +33,7 @@ jobs:
       - name: Checkout Node.js Image
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.node_version }}
           cache: 'npm'
       - name: Deploy
         run: |
