@@ -6,24 +6,7 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  node-version: 18.*
-
 jobs:
-  Tag:
-    name: Tag
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v3
-      - name: Checkout Node.js Image
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.node_version }}
-          cache: 'npm'
-      - name: Version and Tag
-        run: |
-          yarn version --minor
   Deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -33,9 +16,17 @@ jobs:
       - name: Checkout Node.js Image
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.node_version }}
+          node-version: 18.*
           cache: 'npm'
       - name: Deploy
         run: |
           yarn install --frozen-lockfile
+          git config --global user.name $user_name
+          git config --global user.email $user_email
+          git remote set-url origin https://${github_token}@github.com/${repository}
           yarn run deploy
+        env:
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          repository: ${{ github.repository }}
