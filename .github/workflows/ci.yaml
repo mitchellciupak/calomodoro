@@ -36,5 +36,5 @@ jobs:
           cache: 'npm'
       - name: Run Tests Against Source Code
         run: |
-          yarn ci
+          yarn install --frozen-lockfile
           yarn run test
