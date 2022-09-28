@@ -34,7 +34,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "yarn install",
 	// Use 'postStartCommand' to run commands after the container is started
-	// "postStartCommand": "pre-commit install",
+	"postStartCommand": "git fetch --all",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node",
 	//requires auth with gh cli. More info: https://cli.github.com. More info: https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount.
