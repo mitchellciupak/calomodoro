@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
-import { AppShell, Header } from "@mantine/core";
+import { version } from '../package.json';
+import { AppShell, Header, Footer } from "@mantine/core";
 import TimerComponent from "./components/timer";
 import EventComponent from "./components/event";
 
@@ -13,6 +14,11 @@ function App() {
         styles={(theme) => ({
           main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
         })}
+        footer={
+          <Footer height={60} p="md">
+            version
+          </Footer>
+        }
       >
         <TimerComponent />
         <EventComponent />
