@@ -11,7 +11,6 @@ export default function EventComponent(props) {
 
         const event = {
             "summary": summary,
-            "location": "402 At My Desk Blvd, Moon, Dark Side",
             "description": description,
             "start": {
                 "dateTime": new Date().toISOString(),
@@ -22,11 +21,7 @@ export default function EventComponent(props) {
                 "timeZone": Intl.DateTimeFormat().resolvedOptions().timeZone,
             },
             "recurrence": [
-                "RRULE:FREQ=DAILY;COUNT=2"
-            ],
-            "attendees": [
-                { "email": "lpage@example.com" },
-                { "email": "sbrin@example.com" },
+                "RRULE:FREQ=ONCE;COUNT=1"
             ],
             "reminders": {
                 "useDefault": false,
