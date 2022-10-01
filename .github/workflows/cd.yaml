@@ -1,25 +1,44 @@
 name: CD
 
 on:
-  repository_dispatch:
-    types: [build_success]
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 jobs:
+  Lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+      - name: Run Super-Linter Against Source Code
+        uses: github/super-linter/slim@v4
+        env:
+          DEFAULT_BRANCH: main
+          LINTER_RULES_PATH: /
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_JAVASCRIPT_STANDARD: false
+          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  Test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+      - name: Checkout Node.js Image
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.*
+          cache: 'npm'
+      - name: Run Tests Against Source Code
+        run: |
+          yarn install --frozen-lockfile
+          yarn run test
   Deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for CI
-        uses: lewagon/wait-on-check-action@v1.0.0
-        with:
-          ref: "${{ github.ref }}"
-          check-name: CI
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 20
       - name: Checkout Source Code
         uses: actions/checkout@v3
       - name: Checkout Node.js Image
