@@ -21,7 +21,7 @@ export default function EventComponent(props) {
                 "timeZone": Intl.DateTimeFormat().resolvedOptions().timeZone,
             },
             "recurrence": [
-                "RRULE:FREQ=DAILY;COUNT=2"
+                "RRULE:FREQ=ONCE;COUNT=1"
             ],
             "reminders": {
                 "useDefault": false,
