@@ -5,8 +5,8 @@ on:
     branches: [ main ]
 
 jobs:
-  Lint:
-    name: Lint
+  Deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Code
@@ -20,12 +20,6 @@ jobs:
           VALIDATE_JAVASCRIPT_STANDARD: false
           JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  Test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v3
       - name: Checkout Node.js Image
         uses: actions/setup-node@v3
         with:
@@ -35,17 +29,6 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn run test
-  Deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v3
-      - name: Checkout Node.js Image
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.*
-          cache: 'npm'
       - name: Deploy
         run: |
           yarn install --frozen-lockfile
