@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=192px height=192px src="public/logo192.png" alt="calomodoro_logo_192px"></a>
+ <img width=192px height=192px src="public/logo192.jpeg" alt="calomodoro_logo_192px"></a>
 </p>
 
 <h3 align="center">Calomodoro</h3>
