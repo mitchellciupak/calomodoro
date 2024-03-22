@@ -5,16 +5,31 @@
     "dockerComposeFile": "docker-compose.yaml",
     "service": "app",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-    "extensions": [
-        "eamodio.gitlens",
-        "ms-azuretools.vscode-docker",
-        "golang.go"
-    ],
-    // Features to add to the dev container. More info: https://containers.dev/features.
-    // "features": {},
-    // Configure tool-specific properties.
-    // "customizations": {},
-    // Use 'postCreateCommand' to run commands after the container is created.
-    // "postCreateCommand": "go version",
+    "features": { // https://containers.dev/features
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // Devcontainer
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
+                // Python
+                "golang.go",
+                // API
+                "rangav.vscode-thunder-client",
+                // Collaboration
+                "eamodio.gitlens",
+                "ms-vsliveshare.vsliveshare"
+            ]
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/root/.aws,type=bind",
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.config,target=/root/.config,type=bind",
+        // "source=/Users/${localEnv:HOME}${localEnv:USERPROFILE}/Library/Application Support/Code/User/globalStorage/,target=/root/.vscode-server/data/User/globalStorage/,type=bind" //target=%APPDATA%\Code\User\globalStorage\ for Windows Users
+    ]
+    // "postCreateCommand": "go version && go mod tidy",
     // "remoteUser": "root",
+    // "remoteUser": "${localEnv:USERPROFILE}",
 }
